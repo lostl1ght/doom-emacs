@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug executable",
+            "type": "gdb",
+            "request": "launch",
+            "gdbpath": "rust-gdb",
+            "target": "${workspaceFolder}/target/debug/<program>",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+        }
+    ]
+}
