@@ -80,43 +80,47 @@
 (setq! default-input-method "russian-computer")
 
 ;; Insert mode escape
-(setq! evil-escape-key-sequence "ii")
-(setq! evil-escape-unordered-key-sequence t)
-(setq! evil-escape-delay 0.2)
+(after! evil-escape
+  (setq! evil-escape-key-sequence "ii")
+  (setq! evil-escape-unordered-key-sequence t)
+  (setq! evil-escape-delay 0.2))
 
 (setq! c-basic-offset 4) ;; C tab size
 (setq! python-indent-offset 4) ;; Python tab size
 (setq! rust-indent-offset 4) ;; Rust tab size
 
 ;; LaTeX configuration
-(setq! tex-indent-arg 2)
-(setq! tex-indent-basic 2) ;; Latex tab size
-(setq! +latex-indent-item-continuation-offset #'auto)
-(map!
- :map cdlatex-mode-map
- :i "TAB" #'cdlatex-tab)
-(setq! cdlatex-math-symbol-alist
-              '((?1 ("\\{"))
-                (?2 ("\\}"))
-                (?/ ("\\not" "\\sqrt{?}"))
-                (?n ("\\nu" "\\infty" "\\ln"))
-                (?\( ("\\langle" "\\leq"))
-                (?\) ("\\rangle" "\\geq"))))
-(map!
- :map LaTeX-mode-map
- :localleader
- :desc "Open output log" "l" #'tex-recenter-output-buffer)
+(add-hook! 'LaTeX-mode-hook
+  (setq! tex-indent-arg 2) ;; Latex tab size
+  (setq! tex-indent-basic 2)
+  (setq! +latex-indent-item-continuation-offset #'auto)
+  (map!
+   :map LaTeX-mode-map
+   :localleader
+   :desc "Open output log" "l" #'tex-recenter-output-buffer)
+  )
+(add-hook! 'LaTeX-mode-hook #'turn-on-cdlatex)
 
-;; Dap-mode configuration
-(setq! dap-python-debugger 'debugpy) ;; Python debugger
+(after! cdlatex
+  (map!
+   :map cdlatex-mode-map
+   :i "TAB" #'cdlatex-tab)
+  (setq! cdlatex-math-symbol-alist
+         '((?1 ("\\{"))
+           (?2 ("\\}"))
+           (?/ ("\\not" "\\sqrt{?}"))
+           (?n ("\\nu" "\\infty" "\\ln"))
+           (?\( ("\\langle" "\\leq"))
+           (?\) ("\\rangle" "\\geq")))))
+
 
 ;; Lisp configuration
 (add-hook! 'lisp-mode
   (require 'eval-in-repl)
-  (require 'eval-in-repl-sly))
+  (require 'eval-in-repl-sly)
+  (map! :map lisp-mode-map
+        :localleader
+        :prefix "e"
+        :desc "Evaluate in REPL" "s" #'eir-eval-in-sly)
+  (setq! eir-always-split-script-window t))
 
-(map!
- :map lisp-mode-map
- :localleader
- :prefix "e"
- :desc "Evaluate in REPL" "s" #'eir-eval-in-sly)
