@@ -124,3 +124,22 @@
         :desc "Evaluate in REPL" "s" #'eir-eval-in-sly)
   (setq! eir-always-split-script-window t))
 
+;; Dap-mode configuration
+(add-hook! (c-mode c++-mode)
+  (after! dap-mode
+    (require 'dap-gdb-lldb)))
+(add-hook! python-mode
+  (after! dap-mode
+    (setq! dap-python-debugger 'debugpy)))
+
+(after! dap-mode
+  (map! :map dap-mode-map
+        :localleader
+        (:prefix ("d" . "debug")
+         :desc "Start" "d" #'dap-debug
+         :desc "Toggle breakpoint" "b" #'dap-breakpoint-toggle
+         :desc "Step over" "o" #'dap-next
+         :desc "Step in" "i" #'dap-step-in
+         :desc "Step out" "u" #'dap-step-out
+         :desc "Kill" "k" #'dap-delete-session
+         :desc "Continue" "c"#'dap-continue)))
