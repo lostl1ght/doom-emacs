@@ -125,7 +125,7 @@
   (setq! eir-always-split-script-window t))
 
 ;; Dap-mode configuration
-(add-hook! (c-mode c++-mode)
+(add-hook! (c-mode c++-mode rustic-mode)
   (after! dap-mode
     (require 'dap-gdb-lldb)))
 (add-hook! python-mode
