@@ -50,3 +50,4 @@
 ;(unpin! t)
 
 (package! eval-in-repl)
+(package! ccls :disable t)
