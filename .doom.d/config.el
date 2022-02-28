@@ -161,3 +161,9 @@
          :desc "Debug" "d" #'dap-debug
          :desc "Toggle breakpoint" "b" #'dap-breakpoint-toggle
          :desc "Kill all sessions" "k" #'dap-delete-all-sessions)))
+
+;; Evil-goggles
+(after! evil-goggles
+  (evil-goggles-use-diff-faces)
+  (setq-default evil-goggles-blocking-duration 0.100)
+  (setq-default evil-goggles-async-duration 0.900))
