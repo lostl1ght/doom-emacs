@@ -2,10 +2,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug executable",
-            "type": "lldb",
+            "name": "Debug Rust",
+            "type": "gdb",
             "request": "launch",
-            "target": "${workspaceFolder}/<program>",
+            "gdbpath": "rust-gdb",
+            "target": "${workspaceFolder}/target/debug/<program>",
             "args": [],
             "cwd": "${workspaceFolder}",
         }
