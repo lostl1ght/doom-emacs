@@ -118,7 +118,7 @@
 
 
 ;; Lisp configuration
-(add-hook! 'lisp-mode
+(add-hook! 'lisp-mode-hook
   (require 'eval-in-repl)
   (require 'eval-in-repl-sly)
   (map! :map lisp-mode-map
@@ -131,18 +131,33 @@
 (add-hook! (c-mode c++-mode rustic-mode)
   (after! dap-mode
     (require 'dap-gdb-lldb)))
-(add-hook! python-mode
-  (after! dap-mode
-    (setq! dap-python-debugger 'debugpy)))
-
-(after! dap-mode
-  (map! :map dap-mode-map
+(add-hook! 'c-mode-hook
+  (map! :map c-mode-map
         :localleader
         (:prefix ("d" . "debug")
-         :desc "Start" "d" #'dap-debug
+         :desc "Debug" "d" #'dap-debug
          :desc "Toggle breakpoint" "b" #'dap-breakpoint-toggle
-         :desc "Step over" "o" #'dap-next
-         :desc "Step in" "i" #'dap-step-in
-         :desc "Step out" "u" #'dap-step-out
-         :desc "Kill" "k" #'dap-delete-session
-         :desc "Continue" "c"#'dap-continue)))
+         :desc "Kill all sessions" "k" #'dap-delete-all-sessions)))
+(add-hook! 'c++-mode-hook
+  (map! :map c++-mode-map
+        :localleader
+        (:prefix ("d" . "debug")
+         :desc "Debug" "d" #'dap-debug
+         :desc "Toggle breakpoint" "b" #'dap-breakpoint-toggle
+         :desc "Kill all sessions" "k" #'dap-delete-all-sessions)))
+(add-hook! 'rustic-mode-hook
+  (map! :map rustic-mode-map
+        :localleader
+        (:prefix ("d" . "debug")
+         :desc "Debug" "d" #'dap-debug
+         :desc "Toggle breakpoint" "b" #'dap-breakpoint-toggle
+         :desc "Kill all sessions" "k" #'dap-delete-all-sessions)))
+(add-hook! 'python-mode-hook
+  (after! dap-mode
+    (setq! dap-python-debugger 'debugpy))
+  (map! :map python-mode-map
+        :localleader
+        (:prefix ("d" . "debug")
+         :desc "Debug" "d" #'dap-debug
+         :desc "Toggle breakpoint" "b" #'dap-breakpoint-toggle
+         :desc "Kill all sessions" "k" #'dap-delete-all-sessions)))
