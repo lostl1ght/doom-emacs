@@ -174,3 +174,15 @@
 (setq evil-split-window-below t
       evil-vsplit-window-right t)
 
+;; Fomatters
+(set-formatter! 'stylua
+  (concat "stylua --config-path "
+          (getenv "HOME")
+          "/.config/stylua/stylua.toml -")
+  :modes '(lua-mode))
+(set-formatter! 'yapf
+  "yapf --style google"
+  :modes '(python-mode))
+(set-formatter! 'shfmt-custom
+  "shfmt -i 4 -ln bash"
+  :modes '(sh-mode))
