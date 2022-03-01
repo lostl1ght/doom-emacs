@@ -93,7 +93,7 @@
 (setq! rust-indent-offset 4) ;; Rust tab size
 
 ;; LaTeX configuration
-(setq! +latex-viewers '(pdf-tools))
+(setq! +latex-viewers '(pdf-tools okular))
 (add-hook! 'LaTeX-mode-hook
   (setq! tex-indent-arg 2) ;; Latex tab size
   (setq! tex-indent-basic 2)
@@ -169,3 +169,8 @@
   (evil-goggles-use-diff-faces)
   (setq-default evil-goggles-blocking-duration 0.100)
   (setq-default evil-goggles-async-duration 0.900))
+
+;; Focus new window after splitting
+(setq evil-split-window-below t
+      evil-vsplit-window-right t)
+
