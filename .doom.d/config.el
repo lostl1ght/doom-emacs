@@ -131,6 +131,9 @@
 (add-hook! (c-mode c++-mode rustic-mode)
   (after! dap-mode
     (require 'dap-gdb-lldb)))
+(add-hook! 'python-mode-hook
+  (after! dap-mode
+    (setq! dap-python-debugger 'debugpy)))
 (add-hook! 'c-mode-hook
   (map! :map c-mode-map
         :localleader
@@ -153,8 +156,6 @@
          :desc "Toggle breakpoint" "b" #'dap-breakpoint-toggle
          :desc "Kill all sessions" "k" #'dap-delete-all-sessions)))
 (add-hook! 'python-mode-hook
-  (after! dap-mode
-    (setq! dap-python-debugger 'debugpy))
   (map! :map python-mode-map
         :localleader
         (:prefix ("d" . "debug")
