@@ -186,3 +186,7 @@
 (set-formatter! 'shfmt-custom
   "shfmt -i 4 -ln bash"
   :modes '(sh-mode))
+
+;; Word wrap
+(+global-word-wrap-mode +1)
+(setq! +word-wrap-extra-indent 'single)
