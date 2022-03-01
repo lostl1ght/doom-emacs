@@ -93,6 +93,7 @@
 (setq! rust-indent-offset 4) ;; Rust tab size
 
 ;; LaTeX configuration
+(setq! +latex-viewers '(pdf-tools))
 (add-hook! 'LaTeX-mode-hook
   (setq! tex-indent-arg 2) ;; Latex tab size
   (setq! tex-indent-basic 2)
