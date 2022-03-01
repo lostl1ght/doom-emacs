@@ -53,3 +53,5 @@
 (package! ccls :disable t)
 (package! cdlatex
   :recipe (:local-repo "cdlatex"))
+
+(package! zeal-at-point)
