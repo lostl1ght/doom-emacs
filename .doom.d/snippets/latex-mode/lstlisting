@@ -1,0 +1,6 @@
+# key: list
+# name: lstlisting
+# --
+\begin{lstlisting}[style=${1:style}]
+$2
+\end{lstlisting}

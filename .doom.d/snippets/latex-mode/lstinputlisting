@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: lstinputlisting
+# key: lst
+# uuid: lst
+# --
+\begin{lstinputlisting}[
+  style=${1:style},
+  firstline=${2:n},
+  lastline=${3:n},
+  caption={${4:caption}}
+]{${5:code}}
+\end{lstinputlisting}
