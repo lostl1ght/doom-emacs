@@ -52,6 +52,5 @@
 (package! eval-in-repl)
 (package! ccls :disable t)
 (package! cdlatex
-  :recipe (:local-repo "cdlatex"))
-
+  :recipe (:local-repo ".local/cdlatex"))
 (package! zeal-at-point)

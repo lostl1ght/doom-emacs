@@ -200,9 +200,14 @@
 (+global-word-wrap-mode +1)
 (setq! +word-wrap-extra-indent 'single)
 
+;; Git-gutter
 (map! :after git-gutter
       :map git-gutter-mode-map
       :leader
       :prefix "g"
       :desc "Preview hunk"
       "p" #'git-gutter:popup-hunk)
+
+;; Indent-guides
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+(setq! highlight-indent-guides-method 'bitmap)
