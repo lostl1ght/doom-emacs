@@ -6,7 +6,7 @@
             "type": "lldb",
             "request": "launch",
             "target": "${workspaceFolder}/<program>",
-            "args": [],
+            "arguments": [],
             "cwd": "${workspaceFolder}",
         }
     ]

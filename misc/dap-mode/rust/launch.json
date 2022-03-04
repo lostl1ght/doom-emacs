@@ -7,7 +7,7 @@
             "request": "launch",
             "gdbpath": "rust-gdb",
             "target": "${workspaceFolder}/target/debug/<program>",
-            "args": [],
+            "arguments": [],
             "cwd": "${workspaceFolder}",
         }
     ]
