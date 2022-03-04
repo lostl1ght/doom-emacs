@@ -199,3 +199,10 @@
 ;; Word wrap
 (+global-word-wrap-mode +1)
 (setq! +word-wrap-extra-indent 'single)
+
+(map! :after git-gutter
+      :map git-gutter-mode-map
+      :leader
+      :prefix "g"
+      :desc "Preview hunk"
+      "p" #'git-gutter:popup-hunk)
