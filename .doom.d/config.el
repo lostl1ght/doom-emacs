@@ -81,6 +81,9 @@
 (setq! confirm-kill-emacs nil)
 ;; Keyboard layout switch (C-\)
 (setq! default-input-method "russian-computer")
+(map! :leader
+      :desc "Switch layout"
+      :nv "\\" #'toggle-input-method)
 
 ;; Insert mode escape
 (after! evil-escape
