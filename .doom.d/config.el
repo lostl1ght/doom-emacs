@@ -104,8 +104,14 @@
   (map!
    :map LaTeX-mode-map
    :localleader
-   :desc "Open output log" "l" #'tex-recenter-output-buffer)
-  )
+   :desc "Open output log" "l" #'TeX-recenter-output-buffer
+   (:prefix ("f" . "fill")
+    :desc "Fill section" "s" #'LaTeX-fill-section
+    :desc "Fill buffer" "b" #'LaTeX-fill-buffer
+    :desc "Fill region" "r" #'LaTeX-fill-region))
+  (add-to-list 'LaTeX-verbatim-environments "lstlisting")
+  (add-to-list 'LaTeX-indent-environment-list
+               '("lstlisting" current-indentation)))
 (add-hook! 'LaTeX-mode-hook #'turn-on-cdlatex)
 
 (after! cdlatex
