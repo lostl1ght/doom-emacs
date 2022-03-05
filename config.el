@@ -112,13 +112,13 @@
   (add-to-list 'LaTeX-verbatim-environments "lstlisting")
   (add-to-list 'LaTeX-indent-environment-list
                '("lstlisting" current-indentation)))
-(add-hook! 'LaTeX-mode-hook #'turn-on-cdlatex)
 
-(after! cdlatex
+(add-hook! 'LaTeX-mode-hook #'turn-on-tablatex)
+(after! tablatex
   (map!
-   :map cdlatex-mode-map
-   :i "TAB" #'cdlatex-tab)
-  (setq! cdlatex-math-symbol-alist
+   :map tablatex-mode-map
+   :i "TAB" #'tablatex-tab)
+  (setq! tablatex-math-symbol-alist
          '((?1 ("\\{"))
            (?2 ("\\}"))
            (?/ ("\\not" "\\sqrt{?}"))
@@ -209,5 +209,4 @@
       "p" #'git-gutter:popup-hunk)
 
 ;; Indent-guides
-(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 (setq! highlight-indent-guides-method 'bitmap)
