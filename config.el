@@ -210,3 +210,10 @@
 
 ;; Indent-guides
 (setq! highlight-indent-guides-method 'bitmap)
+
+;; SPC p c
+(use-package! counsel
+  :defer t
+  :init
+  (define-key!
+    [remap projectile-compile-project] #'projectile-compile-project))
