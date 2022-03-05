@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
+(setq! user-full-name "John Doe"
+       user-mail-address "john@doe.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -28,22 +28,21 @@
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
 ;; refresh your font settings. If Emacs still can't find your font, it likely
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 14))
+(setq! doom-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 14))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
-(setq! fancy-splash-image
-       (expand-file-name "misc/emacs-e.svg" doom-private-dir))
+(setq! doom-theme 'doom-one
+       fancy-splash-image (expand-file-name "misc/emacs-e.svg" doom-private-dir))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq! display-line-numbers-type t)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq! org-directory "~/org/")
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -78,29 +77,29 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq! confirm-kill-emacs nil)
-;; Keyboard layout switch (C-\)
-(setq! default-input-method "russian-computer")
+(setq! confirm-kill-emacs nil
+       ;; Keyboard layout switch (C-\)
+       default-input-method "russian-computer")
 (map! :leader
       :desc "Switch layout"
       :nv "\\" #'toggle-input-method)
 
 ;; Insert mode escape
 (after! evil-escape
-  (setq! evil-escape-key-sequence "ii")
-  (setq! evil-escape-unordered-key-sequence t)
-  (setq! evil-escape-delay 0.2))
+  (setq! evil-escape-key-sequence "ii"
+         evil-escape-unordered-key-sequence t
+         evil-escape-delay 0.2))
 
-(setq! c-basic-offset 4) ;; C tab size
-(setq! python-indent-offset 4) ;; Python tab size
-(setq! rust-indent-offset 4) ;; Rust tab size
+(setq! c-basic-offset 4       ;; C tab size
+       python-indent-offset 4 ;; Python tab size
+       rust-indent-offset 4)  ;; Rust tab size
 
 ;; LaTeX configuration
 (setq! +latex-viewers '(pdf-tools okular))
 (add-hook! 'LaTeX-mode-hook
-  (setq! tex-indent-arg 2) ;; Latex tab size
-  (setq! tex-indent-basic 2)
-  (setq! +latex-indent-item-continuation-offset #'auto)
+  (setq! tex-indent-arg 2     ;; Latex tab size
+         tex-indent-basic 2
+         +latex-indent-item-continuation-offset #'auto)
   (map!
    :map LaTeX-mode-map
    :localleader
@@ -115,9 +114,6 @@
 
 (add-hook! 'LaTeX-mode-hook #'turn-on-tablatex)
 (after! tablatex
-  (map!
-   :map tablatex-mode-map
-   :i "TAB" #'tablatex-tab)
   (setq! tablatex-math-symbol-alist
          '((?1 ("\\{"))
            (?2 ("\\}"))
@@ -176,11 +172,11 @@
 ;; Evil-goggles
 (after! evil-goggles
   (evil-goggles-use-diff-faces)
-  (setq-default evil-goggles-blocking-duration 0.100)
-  (setq-default evil-goggles-async-duration 0.900))
+  (setq! evil-goggles-blocking-duration 0.100
+                evil-goggles-async-duration 0.900))
 
 ;; Focus new window after splitting
-(setq evil-split-window-below t
+(setq! evil-split-window-below t
       evil-vsplit-window-right t)
 
 ;; Fomatters
