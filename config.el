@@ -95,11 +95,11 @@
        rust-indent-offset 4)  ;; Rust tab size
 
 ;; LaTeX configuration
-(setq! +latex-viewers '(pdf-tools okular))
+(setq! +latex-viewers '(pdf-tools okular)
+       +latex-indent-item-continuation-offset #'auto)
 (add-hook! 'LaTeX-mode-hook
   (setq! tex-indent-arg 2     ;; Latex tab size
-         tex-indent-basic 2
-         +latex-indent-item-continuation-offset #'auto)
+         tex-indent-basic 2)
   (map!
    :map LaTeX-mode-map
    :localleader
