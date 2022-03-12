@@ -92,7 +92,8 @@
 
 (setq! c-basic-offset 4       ;; C tab size
        python-indent-offset 4 ;; Python tab size
-       rust-indent-offset 4)  ;; Rust tab size
+       rust-indent-offset 4   ;; Rust tab size
+       lua-indent-level 4)    ;; Lua tab size
 
 ;; LaTeX configuration
 (setq! +latex-viewers '(pdf-tools okular)
