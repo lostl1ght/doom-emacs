@@ -123,7 +123,6 @@
            (?\( ("\\langle" "\\leq"))
            (?\) ("\\rangle" "\\geq")))))
 
-
 ;; Lisp configuration
 (add-hook! 'lisp-mode-hook
   (require 'eval-in-repl)
@@ -193,7 +192,7 @@
   "shfmt -i 4 -ln bash"
   :modes '(sh-mode))
 
-;; Word wrap
+;; Word-wrap
 (+global-word-wrap-mode +1)
 (setq! +word-wrap-extra-indent 'single)
 
@@ -214,3 +213,7 @@
   :init
   (define-key!
     [remap projectile-compile-project] #'projectile-compile-project))
+
+;; Rainbow-mode
+(add-hook! 'rainbow-mode-hook
+  (hl-line-mode (if rainbow-mode -1 +1)))
