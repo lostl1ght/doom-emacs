@@ -221,3 +221,6 @@
 ;; Rainbow-mode
 (add-hook! 'rainbow-mode-hook
   (hl-line-mode (if rainbow-mode -1 +1)))
+
+;; Octave
+(add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
