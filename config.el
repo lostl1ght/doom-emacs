@@ -83,6 +83,10 @@
 (map! :leader
       :desc "Switch layout"
       :nv "\\" #'toggle-input-method)
+(map! :leader
+      :prefix "s"
+      :desc "No hightlight"
+      "c" #'evil-ex-nohighlight)
 
 ;; Insert mode escape
 (after! evil-escape
