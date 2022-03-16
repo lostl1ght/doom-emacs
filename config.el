@@ -94,7 +94,8 @@
          evil-escape-unordered-key-sequence t
          evil-escape-delay 0.2))
 
-(setq! c-basic-offset 4       ;; C tab size
+(setq! indent-tabs-mode nil
+       c-basic-offset 4       ;; C tab size
        python-indent-offset 4 ;; Python tab size
        rust-indent-offset 4   ;; Rust tab size
        lua-indent-level 4)    ;; Lua tab size
