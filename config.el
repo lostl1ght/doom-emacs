@@ -225,3 +225,11 @@
 
 ;; Octave
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
+
+;; Treemacs
+(treemacs-project-follow-mode)
+(map! :map treemacs-mode-map
+      :leader
+      :prefix "f"
+      :desc "Treemacs"
+      "t" #'treemacs)
