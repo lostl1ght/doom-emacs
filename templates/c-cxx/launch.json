@@ -7,7 +7,7 @@
             "request": "launch",
             "target": "${workspaceFolder}/<program>",
             "arguments": [],
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}"
         }
     ]
 }
