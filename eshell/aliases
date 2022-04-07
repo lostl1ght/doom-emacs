@@ -1,0 +1,7 @@
+#+---------------------+
+#+ Replace ls with exa +
+#+---------------------+
+alias ls exa -a --group-directories-first $*                    # preferred listing
+alias la exa -algh --group-directories-first  --git $*          # all files and dirs
+alias l. (exa -ad --group-directories-first  .*) 2>/dev/null $* # show only dotfiles
+alias l ls $*
