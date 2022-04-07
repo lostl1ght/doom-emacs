@@ -23,7 +23,7 @@
        (company +childframe) ; the ultimate code completion backend
        ;;(helm +fuzzy)       ; the *other* search engine for love and life
        ;;ido                 ; the other *other* search engine...
-       (ivy +fuzzy)          ; a search engine for love and life
+       (ivy +fuzzy +icons)          ; a search engine for love and life
        ;;vertico             ; the search engine of the future
 
        :ui
@@ -66,9 +66,9 @@
        word-wrap             ; soft wrapping with language-aware indent
 
        :emacs
-       dired                 ; making dired pretty [functional]
+       (dired +icons)        ; making dired pretty [functional]
        electric              ; smarter, keyword-based electric-indent
-       ibuffer               ; interactive buffer management
+       (ibuffer +icons)      ; interactive buffer management
        undo                  ; persistent, smarter undo for your inevitable mistakes
        vc                    ; version-control and Emacs, sitting in a tree
 
